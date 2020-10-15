@@ -9,13 +9,23 @@ body{
     
 }
 
+.information{
+    position: absolute;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 18;
+
+}
+
 .gameBox{
     width: 80vmin;
     height: 80vmin;
     background-color: #ccc;
     display: grid;
-    grid-template-rows: repeat(30,1fr);
-    grid-template-columns: repeat(30,1fr);
+    grid-template-rows: repeat(15,1fr);
+    grid-template-columns: repeat(15,1fr);
 }
 
 .snake{
@@ -37,10 +47,10 @@ body{
     font-size: 18px;
 }
 
-.score__input{
+#input{
     background-color: transparent;
     border: transparent;
     font-size: 18px;
     color: #fff;
-    width: 1rem;
+    width: 3rem;
 }

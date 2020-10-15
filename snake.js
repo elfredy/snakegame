@@ -1,6 +1,13 @@
 import { getInputDirection } from "./input.js";
 
-export const SNAKE_SPEED = 6;
+export var SNAKE_SPEED = 5;
+window.addEventListener("keydown", (e) => {
+  if (e.keyCode === 16) {
+    SNAKE_SPEED = 10;
+  } else if (e.keyCode === 32) {
+    SNAKE_SPEED = 6;
+  }
+});
 
 const snakeBody = [{ x: 11, y: 11 }];
 let newSegments = 0;
@@ -35,11 +42,8 @@ export function onSnake(position, { ignoreHead = false } = {}) {
       return false;
     }
     return equalPositions(segment, position);
-    
   });
 }
-
-
 
 export function getSnakeHead() {
   return snakeBody[0];
@@ -48,9 +52,11 @@ export function getSnakeHead() {
 export function snakeIntersection() {
   return onSnake(snakeBody[0], { ignoreHead: true });
 }
-
+/* var num = 0;
+num++; */
 function equalPositions(pos1, pos2) {
   return pos1.x === pos2.x && pos1.y === pos2.y;
+  
 }
 
 function addSegments() {

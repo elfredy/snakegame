@@ -8,8 +8,8 @@ export function update() {
   if (onSnake(food)) {
     expandSnake(EXPANSİON_RATE);
     food = getRandomFoodPosition();
+    gamePoint();
   }
-  
 }
 
 export function draw(gameBoard) {
@@ -18,15 +18,33 @@ export function draw(gameBoard) {
   foodElement.style.gridColumnStart = food.x;
   foodElement.classList.add("food");
   gameBoard.appendChild(foodElement);
-  
 }
 
 function getRandomFoodPosition() {
   let newFoodPosition;
+
   while (newFoodPosition == null || onSnake(newFoodPosition)) {
     newFoodPosition = randomGridPosition();
-    
   }
-  
+
   return newFoodPosition;
 }
+
+//const button = document.getElementById("button");
+const input = document.getElementById("input");
+let index = 0;
+function gamePoint() {
+  index += 5;
+  input.value = index;
+}
+
+
+/* 
+button.addEventListener("click", () => {
+  index += 5;
+  input.value = index;
+}); */
+
+/* function hesabla() {
+  
+} */
